@@ -32,7 +32,7 @@ jobs:
           CSV_FILE = 'manga.csv'
           RSS_FILE = 'rss.xml'
           PROGRESS_FILE = 'progress.txt' 
-          DAILY_COUNT = 2      # <--- 【修改这里】每天推送的篇数（例如改为 2）
+          DAILY_COUNT = 1      # <--- 【修改这里】每天推送的篇数（例如改为 2）
           MAX_RSS_ITEMS = 50   # <--- 【修改这里】RSS 列表中最多保留多少条历史记录
           # =============================
 
