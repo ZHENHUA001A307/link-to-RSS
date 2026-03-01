@@ -32,47 +32,49 @@ jobs:
           CSV_FILE = 'manga.csv'
           RSS_FILE = 'rss.xml'
           PROGRESS_FILE = 'progress.txt' 
-          DAILY_COUNT = 1      # <--- 【修改这里】每天推送的篇数（例如改为 2）
-          MAX_RSS_ITEMS = 50   # <--- 【修改这里】RSS 列表中最多保留多少条历史记录
+          DAILY_COUNT = 2      # <--- 每天增加几篇
+          MAX_RSS_ITEMS = 50   # <--- RSS 列表最多保留多少条
           # =============================
 
           REPO_URL = "https://github.com/${{ github.repository }}"
 
-          # 1. 读取所有章节 (正序)
+          # 1. 读取所有章节
           all_episodes = []
-          with open(CSV_FILE, 'r', encoding='utf-8') as f:
-              reader = csv.DictReader(f)
-              for row in reader:
-                  all_episodes.append(row)
+          try:
+              with open(CSV_FILE, 'r', encoding='utf-8') as f:
+                  reader = csv.DictReader(f)
+                  for row in reader:
+                      if row.get('title') and row.get('link'):
+                          all_episodes.append(row)
+          except Exception as e:
+              print(f"读取 CSV 出错: {e}")
+              exit(1)
 
-          # 2. 读取当前进度 (已经看过的索引)
+          # 2. 读取当前进度
           current_index = 0
           if os.path.exists(PROGRESS_FILE):
-              with open(PROGRESS_FILE, 'r') as f:
-                  try:
+              try:
+                  with open(PROGRESS_FILE, 'r') as f:
                       current_index = int(f.read().strip())
-                  except:
-                      current_index = 0
+              except:
+                  current_index = 0
 
-          # 3. 计算新的进度
-          # 每天增加 DAILY_COUNT 篇，但不超过总数
+          # 3. 计算新进度
           new_index = min(current_index + DAILY_COUNT, len(all_episodes))
           
-          # 4. 确定要展示的内容
-          # 取从第1话到新进度的所有内容，但只保留最近的 MAX_RSS_ITEMS 条
+          # 4. 筛选要展示的内容 (取到新进度为止，保留最近 MAX 条)
           display_items = all_episodes[:new_index]
           if len(display_items) > MAX_RSS_ITEMS:
               display_items = display_items[-MAX_RSS_ITEMS:]
           
-          # 倒序排列，让最新的在最上面
-          display_items.reverse()
+          display_items.reverse() # 最新章节排在 RSS 顶端
 
-          # 5. 构建 RSS
+          # 5. 构建 RSS 结构
           rss = ET.Element("rss", version="2.0")
           channel = ET.SubElement(rss, "channel")
           ET.SubElement(channel, "title").text = "蘑菇的拟态日常 (连载版)"
           ET.SubElement(channel, "link").text = REPO_URL
-          ET.SubElement(channel, "description").text = f"每天更新 {DAILY_COUNT} 话，保留最近 {MAX_RSS_ITEMS} 条记录"
+          ET.SubElement(channel, "description").text = f"进度：{new_index}/{len(all_episodes)}"
           ET.SubElement(channel, "lastBuildDate").text = datetime.now().strftime("%a, %d %b %Y %H:%M:%S +0800")
 
           for item in display_items:
@@ -82,9 +84,9 @@ jobs:
               ET.SubElement(node, "guid", isPermaLink="false").text = item['link']
               ET.SubElement(node, "pubDate").text = datetime.now().strftime("%a, %d %b %Y %H:%M:%S +0800")
 
-          # 6. 保存
+          # 6. 强制格式化并保存
           tree = ET.ElementTree(rss)
-          ET.indent(tree, space="  ", level=0)
+          if hasattr(ET, 'indent'): ET.indent(tree, space="  ")
           tree.write(RSS_FILE, encoding="utf-8", xml_declaration=True)
           
           with open(PROGRESS_FILE, 'w') as f:
@@ -95,4 +97,10 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
           git add rss.xml progress.txt
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update RSS: +${{ env.DAILY_COUNT }} episodes" && git push)
+          # 检查是否有变动并推送
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update RSS progress"
+            git push
+          fi
