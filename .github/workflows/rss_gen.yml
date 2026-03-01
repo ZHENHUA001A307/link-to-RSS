@@ -32,7 +32,7 @@ jobs:
           CSV_FILE = 'manga.csv'
           RSS_FILE = 'rss.xml'
           PROGRESS_FILE = 'progress.txt' 
-          DAILY_COUNT = 2      # <--- 每天增加几篇
+          DAILY_COUNT = 1      # <--- 每天增加几篇
           MAX_RSS_ITEMS = 50   # <--- RSS 列表最多保留多少条
           # =============================
 
