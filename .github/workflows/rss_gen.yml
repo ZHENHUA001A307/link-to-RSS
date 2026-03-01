@@ -1,92 +1,98 @@
-name: Daily Manga RSS Update # 工作流名称，显示在 GitHub Actions 界面
+name: Daily Manga RSS Update
 
 on:
   schedule:
-    # GitHub 使用的是 UTC 时间。北京时间 08:00 = UTC 00:00
-    # 格式：分 时 日 月 周
-    - cron: '0 0 * * *'
+    - cron: '0 0 * * *' # 北京时间早8点
   push:
     paths:
-      - 'manga.csv' # 当你更新并推送这个 CSV 文件时，立即触发构建
-  workflow_dispatch: # 允许你在 GitHub 页面手动点击 "Run workflow" 按钮触发
+      - 'manga.csv'
+  workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-latest # 使用最新的 Ubuntu 虚拟机环境
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3 # 将你的仓库代码拉取到虚拟机中
+        uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9' # 安装 Python 3.9 环境
+          python-version: '3.9'
 
-      - name: Generate RSS XML
-        shell: python # 指定接下来的步骤直接运行 Python 代码
+      - name: Generate Multi-Episode Daily
+        shell: python
         run: |
           import csv
+          import os
           from datetime import datetime
           import xml.etree.ElementTree as ET
 
-          # --- 基础配置 ---
-          CSV_FILE = 'manga.csv' # 输入源：你的数据表
-          RSS_FILE = 'rss.xml'   # 输出目标：生成的 RSS 文件
-          # 自动获取当前仓库地址，用于 RSS 里的链接显示
+          # ======= 核心参数配置区 =======
+          CSV_FILE = 'manga.csv'
+          RSS_FILE = 'rss.xml'
+          PROGRESS_FILE = 'progress.txt' 
+          DAILY_COUNT = 2      # <--- 【修改这里】每天推送的篇数（例如改为 2）
+          MAX_RSS_ITEMS = 50   # <--- 【修改这里】RSS 列表中最多保留多少条历史记录
+          # =============================
+
           REPO_URL = "https://github.com/${{ github.repository }}"
 
-          # --- 1. 读取数据 ---
-          items = []
-          try:
-            with open(CSV_FILE, 'r', encoding='utf-8') as f:
-                # 使用 DictReader 可以直接通过列名（title, link）访问数据
-                reader = csv.DictReader(f)
-                for row in reader:
-                    items.append(row)
-          except FileNotFoundError:
-            print("错误：在仓库根目录未找到 manga.csv 文件")
-            exit(1)
+          # 1. 读取所有章节 (正序)
+          all_episodes = []
+          with open(CSV_FILE, 'r', encoding='utf-8') as f:
+              reader = csv.DictReader(f)
+              for row in reader:
+                  all_episodes.append(row)
 
-          # --- 2. 逻辑处理 ---
-          # 习惯上 RSS 最新的内容在最上面，所以将数据表行序反转
-          items.reverse()
+          # 2. 读取当前进度 (已经看过的索引)
+          current_index = 0
+          if os.path.exists(PROGRESS_FILE):
+              with open(PROGRESS_FILE, 'r') as f:
+                  try:
+                      current_index = int(f.read().strip())
+                  except:
+                      current_index = 0
 
-          # --- 3. 构建 RSS 结构 (XML) ---
+          # 3. 计算新的进度
+          # 每天增加 DAILY_COUNT 篇，但不超过总数
+          new_index = min(current_index + DAILY_COUNT, len(all_episodes))
+          
+          # 4. 确定要展示的内容
+          # 取从第1话到新进度的所有内容，但只保留最近的 MAX_RSS_ITEMS 条
+          display_items = all_episodes[:new_index]
+          if len(display_items) > MAX_RSS_ITEMS:
+              display_items = display_items[-MAX_RSS_ITEMS:]
+          
+          # 倒序排列，让最新的在最上面
+          display_items.reverse()
+
+          # 5. 构建 RSS
           rss = ET.Element("rss", version="2.0")
           channel = ET.SubElement(rss, "channel")
-          
-          # 设置订阅源的基本信息
-          ET.SubElement(channel, "title").text = "蘑菇的拟态日常"
+          ET.SubElement(channel, "title").text = "蘑菇的拟态日常 (连载版)"
           ET.SubElement(channel, "link").text = REPO_URL
-          ET.SubElement(channel, "description").text = "自建漫画更新推送"
-          # 设置 RSS 最后更新时间
+          ET.SubElement(channel, "description").text = f"每天更新 {DAILY_COUNT} 话，保留最近 {MAX_RSS_ITEMS} 条记录"
           ET.SubElement(channel, "lastBuildDate").text = datetime.now().strftime("%a, %d %b %Y %H:%M:%S +0800")
 
-          # 遍历数据表中的每一行，生成一个 <item> 节点
-          for item in items:
+          for item in display_items:
               node = ET.SubElement(channel, "item")
-              ET.SubElement(node, "title").text = item['title'] # 章节名称
-              ET.SubElement(node, "link").text = item['link']   # 章节链接
-              # guid 是条目的唯一标识，阅读器靠它判断是否为新章节
+              ET.SubElement(node, "title").text = item['title']
+              ET.SubElement(node, "link").text = item['link']
               ET.SubElement(node, "guid", isPermaLink="false").text = item['link']
-              # 设置发布时间（这里默认用生成时的时间）
               ET.SubElement(node, "pubDate").text = datetime.now().strftime("%a, %d %b %Y %H:%M:%S +0800")
 
-          # --- 4. 导出文件 ---
+          # 6. 保存
           tree = ET.ElementTree(rss)
-          # 设置自动缩进，让生成的 xml 文件具备人类可读性（不会挤成一行）
-          ET.indent(tree, space="  ", level=0) 
+          ET.indent(tree, space="  ", level=0)
           tree.write(RSS_FILE, encoding="utf-8", xml_declaration=True)
+          
+          with open(PROGRESS_FILE, 'w') as f:
+              f.write(str(new_index))
 
       - name: Commit and Push
         run: |
-          # 配置虚拟的 Git 机器人身份
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-          
-          # 将生成的 rss.xml 添加到暂存区
-          git add rss.xml
-          
-          # 检查是否有文件变动。如果有变动，则执行 commit 和 push
-          # git diff --quiet 会在没有变化时返回 0，这里用来防止因为没有新内容导致的 commit 报错
-          git diff --quiet && git diff --staged --quiet || (git commit -m "自动更新 RSS 订阅源" && git push)
+          git add rss.xml progress.txt
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update RSS: +${{ env.DAILY_COUNT }} episodes" && git push)
