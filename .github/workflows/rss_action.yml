@@ -2,8 +2,8 @@ name: Daily RSS Update
 
 on:
   schedule:
-    - cron: '0 0 * * *' # 北京时间每天早 8:00 (UTC 0:00)
-  workflow_dispatch: # 方便你随时手动点击运行测试
+    - cron: '0 0 * * *'
+  workflow_dispatch:
 
 jobs:
   update-rss:
@@ -20,25 +20,24 @@ jobs:
         run: |
           import os, datetime
 
-          # 1. 读取当前进度
           with open('progress.txt', 'r') as f:
               idx = int(f.read().strip())
 
-          # 2. 读取 CSV 数据 (跳过第一行 header)
           with open('manga.csv', 'r', encoding='utf-8') as f:
-              lines = f.readlines()[1:]
+              lines = [l.strip() for l in f.readlines() if l.strip()]
+              lines = lines[1:] # 跳过表头
 
           if idx >= len(lines):
               print("已经全部更新完了！")
               exit(0)
 
-          # 3. 解析当前行的标题和链接
-          row = lines[idx].strip()
+          row = lines[idx]
           split_idx = row.find('https://')
-          title = row[:split_idx].strip()
+          
+          # 【关键修复点】：先取前半段，然后去掉两端的空格，再去掉末尾可能存在的逗号
+          title = row[:split_idx].strip().rstrip(',') 
           link = row[split_idx:].strip()
 
-          # 4. 生成 RSS XML 字符串
           now = datetime.datetime.now().strftime('%a, %d %b %Y %H:%M:%S +0000')
           rss = f"""<?xml version="1.0" encoding="UTF-8" ?>
           <rss version="2.0">
@@ -53,7 +52,6 @@ jobs:
           </channel>
           </rss>"""
 
-          # 5. 写回文件
           with open('feed.xml', 'w', encoding='utf-8') as f:
               f.write(rss)
           
@@ -67,5 +65,5 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add progress.txt feed.xml
-          git commit -m "Update RSS Feed for today" || exit 0
+          git commit -m "Update RSS Feed: $(date)" || exit 0
           git push
