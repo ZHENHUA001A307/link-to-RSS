@@ -2,10 +2,20 @@
 <rss version="2.0">
 <channel>
   <title>每日更新推送</title>
-  <item>
-    <title><![CDATA[蘑菇的拟态日常-第034话]]></title>
+  <link>https://github.com/ZHENHUA001A307/link-to-RSS</link>
+  <description>自动更新的 RSS 列表 (保留最近 15 条)</description>
+  <lastBuildDate>Thu, 26 Mar 2026 10:48:40 +0000</lastBuildDate>
+    <item>
+      <title><![CDATA[蘑菇的拟态日常-第035话]]></title>
+      <link>https://m.manhuagui.com/comic/30839/642813.html</link>
+      <description><![CDATA[]]></description>
+      <guid isPermaLink="false">https://m.manhuagui.com/comic/30839/642813.html</guid>
+      <pubDate>Thu, 26 Mar 2026 10:48:40 +0000</pubDate>
+    </item>
+<item>
+    <title>蘑菇的拟态日常-第034话</title>
     <link>https://m.manhuagui.com/comic/30839/642812.html</link>
-    <description><![CDATA[]]></description>
+    <description />
     <guid>https://m.manhuagui.com/comic/30839/642812.html</guid>
     <pubDate>Thu, 26 Mar 2026 02:08:33 +0000</pubDate>
   </item>
