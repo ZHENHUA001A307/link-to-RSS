@@ -17,6 +17,9 @@ jobs:
 
       - name: Generate RSS and Update Progress
         shell: python
+        # 通过 env 把变量传给 Python，避开 YAML 的大括号语法错误
+        env:
+          GITHUB_REPO: ${{ github.repository }}
         run: |
           import os, datetime, csv, re
 
@@ -37,8 +40,7 @@ jobs:
                   reader = csv.reader(f)
                   rows = [row for row in reader if row]
                   if len(rows) > 0:
-                      # 跳过表头
-                      rows = rows[1:]
+                      rows = rows[1:] # 跳过表头
 
           if idx >= len(rows):
               print("所有记录已更新完毕！")
@@ -52,7 +54,7 @@ jobs:
           
           now = datetime.datetime.now().strftime('%a, %d %b %Y %H:%M:%S +0000')
           
-          # 构造新条目字符串
+          # 构造新条目
           new_item = f"""    <item>
       <title><![CDATA[{title}]]></title>
       <link>{link}</link>
@@ -61,25 +63,24 @@ jobs:
       <pubDate>{now}</pubDate>
     </item>"""
 
-          # 4. 读取旧 Feed 并合并条目 (核心逻辑)
+          # 4. 读取旧 Feed 并合并条目 (保留 15 条)
           all_items = [new_item]
           if os.path.exists('feed.xml'):
               with open('feed.xml', 'r', encoding='utf-8') as f:
                   old_content = f.read()
-                  # 使用正则提取现有的所有 <item> 块
                   old_items = re.findall(r'<item>.*?</item>', old_content, re.DOTALL)
                   all_items.extend(old_items)
 
-          # 只保留最近的 15 个条目
           all_items = all_items[:15]
           items_xml = "\n".join(all_items)
 
-          # 5. 生成最终的 RSS XML
+          # 5. 从环境变量获取仓库信息，生成最终 XML
+          repo_name = os.environ.get('GITHUB_REPO', 'unknown/repo')
           rss_full = f"""<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
   <title>每日更新推送</title>
-  <link>https://github.com/{{{{ github.repository }}}}</link>
+  <link>https://github.com/{repo_name}</link>
   <description>从 CSV 自动生成的更新推送</description>
 {items_xml}
 </channel>
