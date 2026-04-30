@@ -4,11 +4,18 @@
   <title>每日更新推送</title>
   <link>https://github.com/ZHENHUA001A307/link-to-RSS</link>
   <description>自动更新的 RSS 列表 (保留最近 15 条)</description>
-  <lastBuildDate>Wed, 29 Apr 2026 01:30:13 +0000</lastBuildDate>
+  <lastBuildDate>Thu, 30 Apr 2026 01:28:28 +0000</lastBuildDate>
     <item>
-      <title><![CDATA[零碎的梦-第04话]]></title>
-      <link>https://m.manhuagui.com/comic/29943/481324.html</link>
+      <title><![CDATA[零碎的梦-第05话]]></title>
+      <link>https://m.manhuagui.com/comic/29943/481325.html</link>
       <description><![CDATA[]]></description>
+      <guid isPermaLink="false">https://m.manhuagui.com/comic/29943/481325.html</guid>
+      <pubDate>Thu, 30 Apr 2026 01:28:28 +0000</pubDate>
+    </item>
+<item>
+      <title>零碎的梦-第04话</title>
+      <link>https://m.manhuagui.com/comic/29943/481324.html</link>
+      <description />
       <guid isPermaLink="false">https://m.manhuagui.com/comic/29943/481324.html</guid>
       <pubDate>Wed, 29 Apr 2026 01:30:13 +0000</pubDate>
     </item>
@@ -102,13 +109,6 @@
       <description />
       <guid isPermaLink="false">https://m.manhuagui.com/comic/26650/359763.html</guid>
       <pubDate>Sun, 12 Apr 2026 02:51:50 +0000</pubDate>
-    </item>
-<item>
-      <title>午夜蓝</title>
-      <link>https://m.manhuagui.com/comic/26650/362077.html</link>
-      <description />
-      <guid isPermaLink="false">https://m.manhuagui.com/comic/26650/362077.html</guid>
-      <pubDate>Sat, 11 Apr 2026 02:32:25 +0000</pubDate>
     </item>
 </channel>
 </rss>
