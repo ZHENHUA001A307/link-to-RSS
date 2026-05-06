@@ -4,11 +4,18 @@
   <title>每日更新推送</title>
   <link>https://github.com/ZHENHUA001A307/link-to-RSS</link>
   <description>自动更新的 RSS 列表 (保留最近 15 条)</description>
-  <lastBuildDate>Mon, 04 May 2026 01:23:28 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 06 May 2026 01:21:31 +0000</lastBuildDate>
     <item>
-      <title><![CDATA[零碎的梦-第07话]]></title>
-      <link>https://m.manhuagui.com/comic/29943/484038.html</link>
+      <title><![CDATA[零碎的梦-第08话]]></title>
+      <link>https://m.manhuagui.com/comic/29943/490263.html</link>
       <description><![CDATA[]]></description>
+      <guid isPermaLink="false">https://m.manhuagui.com/comic/29943/490263.html</guid>
+      <pubDate>Wed, 06 May 2026 01:21:31 +0000</pubDate>
+    </item>
+<item>
+      <title>零碎的梦-第07话</title>
+      <link>https://m.manhuagui.com/comic/29943/484038.html</link>
+      <description />
       <guid isPermaLink="false">https://m.manhuagui.com/comic/29943/484038.html</guid>
       <pubDate>Mon, 04 May 2026 01:23:28 +0000</pubDate>
     </item>
@@ -102,13 +109,6 @@
       <description />
       <guid isPermaLink="false">https://m.manhuagui.com/comic/26650/352014.html</guid>
       <pubDate>Wed, 15 Apr 2026 01:12:55 +0000</pubDate>
-    </item>
-<item>
-      <title>花开那天</title>
-      <link>https://m.manhuagui.com/comic/26650/355289.html</link>
-      <description />
-      <guid isPermaLink="false">https://m.manhuagui.com/comic/26650/355289.html</guid>
-      <pubDate>Tue, 14 Apr 2026 01:14:48 +0000</pubDate>
     </item>
 </channel>
 </rss>
