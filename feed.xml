@@ -4,11 +4,18 @@
   <title>每日更新推送</title>
   <link>https://github.com/ZHENHUA001A307/link-to-RSS</link>
   <description>自动更新的 RSS 列表 (保留最近 15 条)</description>
-  <lastBuildDate>Mon, 11 May 2026 01:47:00 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 13 May 2026 01:47:30 +0000</lastBuildDate>
     <item>
-      <title><![CDATA[零碎的梦-第10话]]></title>
-      <link>https://m.manhuagui.com/comic/29943/498787.html</link>
+      <title><![CDATA[毕业旅行]]></title>
+      <link>https://m.manhuagui.com/comic/30256/405462.html</link>
       <description><![CDATA[]]></description>
+      <guid isPermaLink="false">https://m.manhuagui.com/comic/30256/405462.html</guid>
+      <pubDate>Wed, 13 May 2026 01:47:30 +0000</pubDate>
+    </item>
+<item>
+      <title>零碎的梦-第10话</title>
+      <link>https://m.manhuagui.com/comic/29943/498787.html</link>
+      <description />
       <guid isPermaLink="false">https://m.manhuagui.com/comic/29943/498787.html</guid>
       <pubDate>Mon, 11 May 2026 01:47:00 +0000</pubDate>
     </item>
@@ -102,13 +109,6 @@
       <description />
       <guid isPermaLink="false">https://m.manhuagui.com/comic/27188/355467.html</guid>
       <pubDate>Mon, 20 Apr 2026 01:16:57 +0000</pubDate>
-    </item>
-<item>
-      <title>盒中的回忆</title>
-      <link>https://m.manhuagui.com/comic/26650/345283.html</link>
-      <description />
-      <guid isPermaLink="false">https://m.manhuagui.com/comic/26650/345283.html</guid>
-      <pubDate>Fri, 17 Apr 2026 01:15:04 +0000</pubDate>
     </item>
 </channel>
 </rss>
