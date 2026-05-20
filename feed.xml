@@ -4,11 +4,18 @@
   <title>每日更新推送</title>
   <link>https://github.com/ZHENHUA001A307/link-to-RSS</link>
   <description>自动更新的 RSS 列表 (保留最近 15 条)</description>
-  <lastBuildDate>Mon, 18 May 2026 01:54:24 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 20 May 2026 01:53:34 +0000</lastBuildDate>
     <item>
-      <title><![CDATA[京都美人夜谭-第02话]]></title>
-      <link>https://m.manhuagui.com/comic/31401/424767.html</link>
+      <title><![CDATA[京都美人夜谭-第03话]]></title>
+      <link>https://m.manhuagui.com/comic/31401/445970.html</link>
       <description><![CDATA[]]></description>
+      <guid isPermaLink="false">https://m.manhuagui.com/comic/31401/445970.html</guid>
+      <pubDate>Wed, 20 May 2026 01:53:34 +0000</pubDate>
+    </item>
+<item>
+      <title>京都美人夜谭-第02话</title>
+      <link>https://m.manhuagui.com/comic/31401/424767.html</link>
+      <description />
       <guid isPermaLink="false">https://m.manhuagui.com/comic/31401/424767.html</guid>
       <pubDate>Mon, 18 May 2026 01:54:24 +0000</pubDate>
     </item>
@@ -102,13 +109,6 @@
       <description />
       <guid isPermaLink="false">https://m.manhuagui.com/comic/29922/399350.html</guid>
       <pubDate>Thu, 23 Apr 2026 01:18:10 +0000</pubDate>
-    </item>
-<item>
-      <title>绷带少女限定期-加笔</title>
-      <link>https://m.manhuagui.com/comic/29883/865677.html</link>
-      <description />
-      <guid isPermaLink="false">https://m.manhuagui.com/comic/29883/865677.html</guid>
-      <pubDate>Wed, 22 Apr 2026 01:13:00 +0000</pubDate>
     </item>
 </channel>
 </rss>
