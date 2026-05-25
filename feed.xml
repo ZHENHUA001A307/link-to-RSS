@@ -4,11 +4,18 @@
   <title>每日更新推送</title>
   <link>https://github.com/ZHENHUA001A307/link-to-RSS</link>
   <description>自动更新的 RSS 列表 (保留最近 15 条)</description>
-  <lastBuildDate>Fri, 22 May 2026 01:54:19 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 25 May 2026 01:57:56 +0000</lastBuildDate>
     <item>
-      <title><![CDATA[京都美人夜谭-第04话]]></title>
-      <link>https://m.manhuagui.com/comic/31401/446361.html</link>
+      <title><![CDATA[京都美人夜谭-第05话]]></title>
+      <link>https://m.manhuagui.com/comic/31401/455481.html</link>
       <description><![CDATA[]]></description>
+      <guid isPermaLink="false">https://m.manhuagui.com/comic/31401/455481.html</guid>
+      <pubDate>Mon, 25 May 2026 01:57:56 +0000</pubDate>
+    </item>
+<item>
+      <title>京都美人夜谭-第04话</title>
+      <link>https://m.manhuagui.com/comic/31401/446361.html</link>
+      <description />
       <guid isPermaLink="false">https://m.manhuagui.com/comic/31401/446361.html</guid>
       <pubDate>Fri, 22 May 2026 01:54:19 +0000</pubDate>
     </item>
@@ -102,13 +109,6 @@
       <description />
       <guid isPermaLink="false">https://m.manhuagui.com/comic/29943/423575.html</guid>
       <pubDate>Mon, 27 Apr 2026 01:20:51 +0000</pubDate>
-    </item>
-<item>
-      <title>零碎的梦-第01回</title>
-      <link>https://m.manhuagui.com/comic/29943/399688.html</link>
-      <description />
-      <guid isPermaLink="false">https://m.manhuagui.com/comic/29943/399688.html</guid>
-      <pubDate>Fri, 24 Apr 2026 01:17:49 +0000</pubDate>
     </item>
 </channel>
 </rss>
