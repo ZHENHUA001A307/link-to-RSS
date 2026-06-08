@@ -4,11 +4,18 @@
   <title>每日更新推送</title>
   <link>https://github.com/ZHENHUA001A307/link-to-RSS</link>
   <description>自动更新的 RSS 列表 (保留最近 15 条)</description>
-  <lastBuildDate>Fri, 05 Jun 2026 01:58:17 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 08 Jun 2026 02:08:35 +0000</lastBuildDate>
     <item>
-      <title><![CDATA[老夫子 第01卷-1]]></title>
-      <link>https://m.manhuagui.com/comic/7567/68582.html#p=10</link>
+      <title><![CDATA[老夫子 第01卷-2]]></title>
+      <link>https://m.manhuagui.com/comic/7567/68582.html#p=20</link>
       <description><![CDATA[]]></description>
+      <guid isPermaLink="false">https://m.manhuagui.com/comic/7567/68582.html#p=20</guid>
+      <pubDate>Mon, 08 Jun 2026 02:08:35 +0000</pubDate>
+    </item>
+<item>
+      <title>老夫子 第01卷-1</title>
+      <link>https://m.manhuagui.com/comic/7567/68582.html#p=10</link>
+      <description />
       <guid isPermaLink="false">https://m.manhuagui.com/comic/7567/68582.html#p=10</guid>
       <pubDate>Fri, 05 Jun 2026 01:58:17 +0000</pubDate>
     </item>
@@ -102,13 +109,6 @@
       <description />
       <guid isPermaLink="false">https://m.manhuagui.com/comic/29943/490263.html</guid>
       <pubDate>Wed, 06 May 2026 01:21:31 +0000</pubDate>
-    </item>
-<item>
-      <title>零碎的梦-第07话</title>
-      <link>https://m.manhuagui.com/comic/29943/484038.html</link>
-      <description />
-      <guid isPermaLink="false">https://m.manhuagui.com/comic/29943/484038.html</guid>
-      <pubDate>Mon, 04 May 2026 01:23:28 +0000</pubDate>
     </item>
 </channel>
 </rss>
