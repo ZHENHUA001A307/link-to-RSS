@@ -4,11 +4,18 @@
   <title>每日更新推送</title>
   <link>https://github.com/ZHENHUA001A307/link-to-RSS</link>
   <description>自动更新的 RSS 列表 (保留最近 15 条)</description>
-  <lastBuildDate>Fri, 10 Jul 2026 04:00:11 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 13 Jul 2026 03:40:34 +0000</lastBuildDate>
     <item>
-      <title><![CDATA[老夫子 第02卷-1]]></title>
-      <link>https://m.manhuagui.com/comic/7567/68583.html#p=10</link>
+      <title><![CDATA[老夫子 第02卷-2]]></title>
+      <link>https://m.manhuagui.com/comic/7567/68583.html#p=20</link>
       <description><![CDATA[]]></description>
+      <guid isPermaLink="false">https://m.manhuagui.com/comic/7567/68583.html#p=20</guid>
+      <pubDate>Mon, 13 Jul 2026 03:40:34 +0000</pubDate>
+    </item>
+<item>
+      <title>老夫子 第02卷-1</title>
+      <link>https://m.manhuagui.com/comic/7567/68583.html#p=10</link>
+      <description />
       <guid isPermaLink="false">https://m.manhuagui.com/comic/7567/68583.html#p=10</guid>
       <pubDate>Fri, 10 Jul 2026 04:00:11 +0000</pubDate>
     </item>
@@ -102,13 +109,6 @@
       <description />
       <guid isPermaLink="false">https://m.manhuagui.com/comic/32511/439960.html</guid>
       <pubDate>Fri, 29 May 2026 01:51:53 +0000</pubDate>
-    </item>
-<item>
-      <title>京都美人夜谭-番外</title>
-      <link>https://m.manhuagui.com/comic/31401/457112.html</link>
-      <description />
-      <guid isPermaLink="false">https://m.manhuagui.com/comic/31401/457112.html</guid>
-      <pubDate>Wed, 27 May 2026 01:57:58 +0000</pubDate>
     </item>
 </channel>
 </rss>
