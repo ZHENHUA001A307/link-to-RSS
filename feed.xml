@@ -4,11 +4,18 @@
   <title>每日更新推送</title>
   <link>https://github.com/ZHENHUA001A307/link-to-RSS</link>
   <description>自动更新的 RSS 列表 (保留最近 15 条)</description>
-  <lastBuildDate>Wed, 15 Jul 2026 03:15:30 +0000</lastBuildDate>
+  <lastBuildDate>Thu, 16 Jul 2026 03:22:08 +0000</lastBuildDate>
     <item>
-      <title><![CDATA[老夫子 第02卷-4]]></title>
-      <link>https://m.manhuagui.com/comic/7567/68583.html#p=40</link>
+      <title><![CDATA[老夫子 第02卷-5]]></title>
+      <link>https://m.manhuagui.com/comic/7567/68583.html#p=50</link>
       <description><![CDATA[]]></description>
+      <guid isPermaLink="false">https://m.manhuagui.com/comic/7567/68583.html#p=50</guid>
+      <pubDate>Thu, 16 Jul 2026 03:22:08 +0000</pubDate>
+    </item>
+<item>
+      <title>老夫子 第02卷-4</title>
+      <link>https://m.manhuagui.com/comic/7567/68583.html#p=40</link>
+      <description />
       <guid isPermaLink="false">https://m.manhuagui.com/comic/7567/68583.html#p=40</guid>
       <pubDate>Wed, 15 Jul 2026 03:15:30 +0000</pubDate>
     </item>
@@ -102,13 +109,6 @@
       <description />
       <guid isPermaLink="false">https://m.manhuagui.com/comic/7567/68582.html#p=10</guid>
       <pubDate>Fri, 05 Jun 2026 01:58:17 +0000</pubDate>
-    </item>
-<item>
-      <title>钟声</title>
-      <link>https://m.manhuagui.com/comic/33434/453526.html</link>
-      <description />
-      <guid isPermaLink="false">https://m.manhuagui.com/comic/33434/453526.html</guid>
-      <pubDate>Wed, 03 Jun 2026 02:15:59 +0000</pubDate>
     </item>
 </channel>
 </rss>
