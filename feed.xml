@@ -4,11 +4,18 @@
   <title>每日更新推送</title>
   <link>https://github.com/ZHENHUA001A307/link-to-RSS</link>
   <description>自动更新的 RSS 列表 (保留最近 15 条)</description>
-  <lastBuildDate>Sat, 01 Aug 2026 01:57:32 +0000</lastBuildDate>
+  <lastBuildDate>Sat, 08 Aug 2026 00:56:54 +0000</lastBuildDate>
     <item>
-      <title><![CDATA[老夫子 第02卷-8]]></title>
-      <link>https://m.manhuagui.com/comic/7567/68583.html#p=80</link>
+      <title><![CDATA[老夫子 第02卷-9]]></title>
+      <link>https://m.manhuagui.com/comic/7567/68583.html#p=90</link>
       <description><![CDATA[]]></description>
+      <guid isPermaLink="false">https://m.manhuagui.com/comic/7567/68583.html#p=90</guid>
+      <pubDate>Sat, 08 Aug 2026 00:56:54 +0000</pubDate>
+    </item>
+<item>
+      <title>老夫子 第02卷-8</title>
+      <link>https://m.manhuagui.com/comic/7567/68583.html#p=80</link>
+      <description />
       <guid isPermaLink="false">https://m.manhuagui.com/comic/7567/68583.html#p=80</guid>
       <pubDate>Sat, 01 Aug 2026 01:57:32 +0000</pubDate>
     </item>
@@ -102,13 +109,6 @@
       <description />
       <guid isPermaLink="false">https://m.manhuagui.com/comic/7567/68582.html#p=50</guid>
       <pubDate>Wed, 01 Jul 2026 02:13:33 +0000</pubDate>
-    </item>
-<item>
-      <title>老夫子 第01卷-4</title>
-      <link>https://m.manhuagui.com/comic/7567/68582.html#p=40</link>
-      <description />
-      <guid isPermaLink="false">https://m.manhuagui.com/comic/7567/68582.html#p=40</guid>
-      <pubDate>Fri, 12 Jun 2026 02:04:11 +0000</pubDate>
     </item>
 </channel>
 </rss>
