@@ -1,4 +1,4 @@
-name: Daily RSS Update
+name: News Update
 
 on:
   schedule:
